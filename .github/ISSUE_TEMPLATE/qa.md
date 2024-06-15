@@ -11,11 +11,11 @@ v                     without deliberation
 
 ## Major Changes
 
-<!-- Describe the major changes associated to this release -->
+<!-- Describe the major changes associated with this release -->
 
 ## Gotchas
 
-<!-- Gotchas is an area which changes could of been made that the auditors should be aware of -->
+<!-- Gotchas is an area in which changes could have been made that the auditors should be aware of -->
 
 ## QA Breakdown
 
@@ -70,18 +70,18 @@ v                     without deliberation
     * [ ] Genesis import and export of all state
     * [ ] Query services
     * [ ] CLI methods
-    * [ ] All necessary migration scripts are present (if this is an upgrade of existing module)
+    * [ ] All necessary migration scripts are present (if this is an upgrade of the existing module)
 * [ ] State machine audit
     * [ ] Read through MsgServer code and verify correctness upon visual inspection
     * [ ] Ensure all state machine code which could be confusing is properly commented
     * [ ] Make sure state machine logic matches Msg method documentation
     * [ ] Ensure that all state machine edge cases are covered with tests and that test coverage is sufficient (at least 90% coverage on module code)
-    * [ ] Assess potential threats for each method including spam attacks and ensure that threats have been addressed sufficiently. This should be done by writing up threat assessment for each method. Specifically we should be paying attention to: 
+    * [ ] Assess potential threats for each method including spam attacks and ensure that threats have been addressed sufficiently. This should be done by writing up a threat assessment for each method. Specifically we should be paying attention to: 
         * [ ] algorithmic complexity and places this could be exploited (ex. nested `for` loops)
         * [ ] charging gas complex computation (ex. `for` loops)
         * [ ] storage is safe (we don't pollute the state).
     * [ ] Assess potential risks of any new third party dependencies and decide whether a dependency audit is needed
-    * [ ] Check correctness of simulation implementation if any
+    * [ ] Check the correctness of simulation implementation if any
 * [ ] Audit Changelog against commit log, ensuring all breaking changes, bug fixes, and improvements are properly documented.
 
 If any changes are needed, please make them against main and backport them to release/vX.X.x
