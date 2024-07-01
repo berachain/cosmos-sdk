@@ -39,7 +39,7 @@ Users must manually migrate.
 
 Testing against all supported backends is difficult.
 
-Running tests locally on a Mac require numerous repetitive password entries.
+Running tests locally on a Mac requires numerous repetitive password entries.
 
 ### Neutral
 

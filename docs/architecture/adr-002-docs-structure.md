@@ -2,7 +2,7 @@
 
 ## Context
 
-There is a need for a scalable structure of the Cosmos SDK documentation. Current documentation includes a lot of non-related Cosmos SDK material, is difficult to maintain and hard to follow as a user.
+There is a need for a scalable structure of the Cosmos SDK documentation. Current documentation includes a lot of non-related Cosmos SDK material, which is difficult to maintain and hard to follow as a user.
 
 Ideally, we would have:
 
@@ -76,7 +76,7 @@ Accepted
 
 * We need to move a bunch of deprecated stuff to `/_attic` folder.
 * We need to integrate content in `docs/sdk/docs/core` in `concepts`.
-* We need to move all the content that currently lives in `docs` and does not fit in new structure (like `lotion`, intro material, whitepaper) to the website repository.
+* We need to move all the content that currently lives in `docs` and does not fit in a new structure (like `lotion`, intro material, whitepaper) to the website repository.
 * Update `DOCS_README.md`
 
 ## References
