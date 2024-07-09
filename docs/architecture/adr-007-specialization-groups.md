@@ -66,7 +66,7 @@ type Electionator interface {
     Active() bool
 
     // functionality to execute for when a vote is cast in this election, here
-    // the vote field is anticipated to be marshalled into a vote type used
+    // the vote field is anticipated to be marshaled into a vote type used
     // by an election.
     //
     // NOTE There are no explicit ids here. Just votes which pertain specifically
@@ -118,7 +118,7 @@ type ElectionatorHooks interface {
 // and evidence based revoking, etc. Revokers types may be created and
 // reused for different election types.
 //
-// When revoking the "cause" bytes may be arbitrarily marshalled into evidence,
+// When revoking the "cause" bytes may be arbitrarily marshaled into evidence,
 // memos, etc.
 type Revoker interface {
     RevokeName() string      // identifier for this revoker type

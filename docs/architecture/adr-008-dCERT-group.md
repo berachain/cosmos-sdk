@@ -38,7 +38,7 @@ implementation of:
 * continuous voting
 * slashing due to breach of soft contract
 * revoking a member due to breach of soft contract
-* emergency disband of the entire dCERT group (ex. for colluding maliciously)
+* emergency disbandment of the entire dCERT group (ex. for colluding maliciously)
 * compensation stipend from the community pool or other means decided by
    governance
 
@@ -157,8 +157,8 @@ they should all be severely slashed.
 
 ### Positive
 
-* Potential to reduces the number of parties to coordinate with during an emergency
-* Reduction in possibility of disclosing sensitive information to malicious parties
+* Potential to reduce the number of parties to coordinate with during an emergency
+* Reduction in the possibility of disclosing sensitive information to malicious parties
 
 ### Negative
 

@@ -10,7 +10,7 @@ This checklist is to be used for tracking the final internal audit of new Cosmos
 
 ### Release Candidate Checklist
 
-The following checklist should be gone through once the module has been fully implemented. This audit should be performed directly on `main`, or preferably on a `alpha` or `beta` release tag that includes the module.
+The following checklist should be gone through once the module has been fully implemented. This audit should be performed directly on `main`, or preferably on an `alpha` or `beta` release tag that includes the module.
 
 The module **should not** be included in any Release Candidate tag until it has passed this checklist.
 
@@ -22,13 +22,13 @@ The module **should not** be included in any Release Candidate tag until it has 
   - [ ] Ensure all state machine code which could be confusing is properly commented
   - [ ] Make sure state machine logic matches Msg method documentation
   - [ ] Ensure that all state machine edge cases are covered with tests and that test coverage is sufficient (at least 90% coverage on module code)
-  - [ ] Assess potential threats for each method including spam attacks and ensure that threats have been addressed sufficiently. This should be done by writing up threat assessment for each method
+  - [ ] Assess potential threats for each method including spam attacks and ensure that threats have been addressed sufficiently. This should be done by writing up a threat assessment for each method
   - [ ] Assess potential risks of any new third party dependencies and decide whether a dependency audit is needed
 - [ ] Completeness audit, fully implemented with tests (at least 1 person) (@assignee)
   - [ ] Genesis import and export of all state
   - [ ] Query services
   - [ ] CLI methods
-  - [ ] All necessary migration scripts are present (if this is an upgrade of existing module)
+  - [ ] All necessary migration scripts are present (if this is an upgrade of the existing module)
 
 ### Published Release Checklist
 
@@ -36,5 +36,5 @@ After the above checks have been audited and the module is included in a tagged 
 
 - [ ] Testnet / devnet testing (2-3 people) (@assignee1, @assignee2, @assignee3)
   - [ ] All Msg methods have been tested especially in light of any potential threats identified
-  - [ ] Genesis import and export has been tested
+  - [ ] Genesis import and export have been tested
 - [ ] Nice to have (and needed in some cases if threats could be high): Official 3rd party audit
