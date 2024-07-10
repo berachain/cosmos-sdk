@@ -12,7 +12,7 @@ Projects desiring to use custom accounts (say custom vesting accounts) need to f
 
 ## Decision
 
-In summary, we will (un)marshal all accounts (interface types) directly using amino, rather than converting to `genaccounts`’s `GenesisAccount` type. Since doing this removes the majority of `genaccounts`'s code, we will merge `genaccounts` into `auth`. Marshalled accounts will be stored in `auth`'s genesis state.
+In summary, we will (un)marshal all accounts (interface types) directly using amino, rather than converting to `genaccounts`’s `GenesisAccount` type. Since doing this removes the majority of `genaccounts`'s code, we will merge `genaccounts` into `auth`. Marshaled accounts will be stored in `auth`'s genesis state.
 
 Detailed changes:
 
