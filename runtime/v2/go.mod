@@ -24,7 +24,7 @@ require (
 	cosmossdk.io/x/tx v0.13.3
 	github.com/cosmos/gogoproto v1.5.0
 	github.com/spf13/viper v1.19.0
-	golang.org/x/exp v0.0.0-20240531132922-fd00a4e0eefc
+	golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8
 	google.golang.org/grpc v1.64.1
 	google.golang.org/protobuf v1.34.2
 )

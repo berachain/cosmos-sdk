@@ -6,6 +6,7 @@ import (
 	appmanager "cosmossdk.io/core/app"
 	"cosmossdk.io/core/store"
 	"cosmossdk.io/core/transaction"
+	"cosmossdk.io/server/v2/stf"
 )
 
 // StateTransitionFunction is an interface for processing transactions and blocks.
@@ -48,4 +49,10 @@ type StateTransitionFunction[T transaction.Tx] interface {
 		state store.ReaderMap,
 		closure func(ctx context.Context) error,
 	) (store.WriterMap, error)
+
+	MakeContext(ctx context.Context,
+		sender transaction.Identity,
+		store store.WriterMap,
+		execMode transaction.ExecMode) *stf.ExecutionContext
+	Branch(state store.ReaderMap) store.WriterMap
 }

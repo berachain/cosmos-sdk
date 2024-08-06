@@ -12,7 +12,6 @@ import (
 func contextWithCometInfo(ctx context.Context, info comet.Info) context.Context {
 	return context.WithValue(ctx, corecontext.CometInfoKey, info)
 }
-
 // toCoreEvidence takes comet evidence and returns sdk evidence
 func toCoreEvidence(ev []abci.Misbehavior) []comet.Evidence {
 	evidence := make([]comet.Evidence, len(ev))

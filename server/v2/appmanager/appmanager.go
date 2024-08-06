@@ -25,6 +25,7 @@ type Store interface {
 }
 
 // AppManager is a coordinator for all things related to an application
+// TODO: add exportGenesis function
 type AppManager[T transaction.Tx] struct {
 	config Config
 

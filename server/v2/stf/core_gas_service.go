@@ -29,7 +29,7 @@ func (g gasService) GasConfig(ctx context.Context) gas.GasConfig {
 }
 
 func (g gasService) GasMeter(ctx context.Context) gas.Meter {
-	return ctx.(*executionContext).meter
+	return ctx.(*ExecutionContext).meter
 }
 
 func (g gasService) BlockGasMeter(ctx context.Context) gas.Meter {

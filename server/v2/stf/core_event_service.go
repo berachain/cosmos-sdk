@@ -21,13 +21,13 @@ type eventService struct{}
 
 // EventManager implements event.Service.
 func (eventService) EventManager(ctx context.Context) event.Manager {
-	return &eventManager{ctx.(*executionContext)}
+	return &eventManager{ctx.(*ExecutionContext)}
 }
 
 var _ event.Manager = (*eventManager)(nil)
 
 type eventManager struct {
-	executionContext *executionContext
+	executionContext *ExecutionContext
 }
 
 // Emit emits an typed event that is defined in the protobuf file.

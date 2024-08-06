@@ -14,7 +14,7 @@ var _ branch.Service = (*BranchService)(nil)
 type BranchService struct{}
 
 func (bs BranchService) Execute(ctx context.Context, f func(ctx context.Context) error) error {
-	return bs.execute(ctx.(*executionContext), f)
+	return bs.execute(ctx.(*ExecutionContext), f)
 }
 
 func (bs BranchService) ExecuteWithGasLimit(
@@ -22,7 +22,7 @@ func (bs BranchService) ExecuteWithGasLimit(
 	gasLimit uint64,
 	f func(ctx context.Context) error,
 ) (gasUsed uint64, err error) {
-	stfCtx := ctx.(*executionContext)
+	stfCtx := ctx.(*ExecutionContext)
 
 	originalGasMeter := stfCtx.meter
 
@@ -38,11 +38,11 @@ func (bs BranchService) ExecuteWithGasLimit(
 	return gasUsed, err
 }
 
-func (bs BranchService) execute(ctx *executionContext, f func(ctx context.Context) error) error {
+func (bs BranchService) execute(ctx *ExecutionContext, f func(ctx context.Context) error) error {
 	branchedState := ctx.branchFn(ctx.unmeteredState)
 	meteredBranchedState := ctx.makeGasMeteredStore(ctx.meter, branchedState)
 
-	branchedCtx := &executionContext{
+	branchedCtx := &ExecutionContext{
 		Context:             ctx.Context,
 		unmeteredState:      branchedState,
 		state:               meteredBranchedState,

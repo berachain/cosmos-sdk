@@ -43,10 +43,10 @@ func TestBranchService(t *testing.T) {
 		return nil, nil
 	})
 
-	makeContext := func() *executionContext {
+	makeContext := func() *ExecutionContext {
 		state := mock.DB()
 		writableState := s.branchFn(state)
-		ctx := s.makeContext(context.Background(), []byte("cookies"), writableState, 0)
+		ctx := s.MakeContext(context.Background(), []byte("cookies"), writableState, 0)
 		ctx.setGasLimit(1000000)
 		return ctx
 	}
@@ -81,7 +81,7 @@ func TestBranchService(t *testing.T) {
 		stfCtx := makeContext()
 
 		gasUsed, err := branchService.ExecuteWithGasLimit(stfCtx, 4000, func(ctx context.Context) error {
-			state, _ := ctx.(*executionContext).state.GetWriter(actorName)
+			state, _ := ctx.(*ExecutionContext).state.GetWriter(actorName)
 			_ = state.Set([]byte("not out of gas"), []byte{})
 			return state.Set([]byte("out of gas"), []byte{})
 		})

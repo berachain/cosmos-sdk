@@ -25,19 +25,19 @@ type msgRouterService struct {
 
 // CanInvoke returns an error if the given message cannot be invoked.
 func (m msgRouterService) CanInvoke(ctx context.Context, typeURL string) error {
-	return ctx.(*executionContext).msgRouter.CanInvoke(ctx, typeURL)
+	return ctx.(*ExecutionContext).msgRouter.CanInvoke(ctx, typeURL)
 }
 
 // InvokeTyped execute a message and fill-in a response.
 // The response must be known and passed as a parameter.
 // Use InvokeUntyped if the response type is not known.
 func (m msgRouterService) InvokeTyped(ctx context.Context, msg, resp gogoproto.Message) error {
-	return ctx.(*executionContext).msgRouter.InvokeTyped(ctx, msg, resp)
+	return ctx.(*ExecutionContext).msgRouter.InvokeTyped(ctx, msg, resp)
 }
 
 // InvokeUntyped execute a message and returns a response.
 func (m msgRouterService) InvokeUntyped(ctx context.Context, msg gogoproto.Message) (gogoproto.Message, error) {
-	return ctx.(*executionContext).msgRouter.InvokeUntyped(ctx, msg)
+	return ctx.(*ExecutionContext).msgRouter.InvokeUntyped(ctx, msg)
 }
 
 // NewQueryRouterService implements router.Service.
@@ -51,7 +51,7 @@ type queryRouterService struct{}
 
 // CanInvoke returns an error if the given request cannot be invoked.
 func (m queryRouterService) CanInvoke(ctx context.Context, typeURL string) error {
-	return ctx.(*executionContext).queryRouter.CanInvoke(ctx, typeURL)
+	return ctx.(*ExecutionContext).queryRouter.CanInvoke(ctx, typeURL)
 }
 
 // InvokeTyped execute a message and fill-in a response.
@@ -61,7 +61,7 @@ func (m queryRouterService) InvokeTyped(
 	ctx context.Context,
 	req, resp gogoproto.Message,
 ) error {
-	return ctx.(*executionContext).queryRouter.InvokeTyped(ctx, req, resp)
+	return ctx.(*ExecutionContext).queryRouter.InvokeTyped(ctx, req, resp)
 }
 
 // InvokeUntyped execute a message and returns a response.
@@ -69,5 +69,5 @@ func (m queryRouterService) InvokeUntyped(
 	ctx context.Context,
 	req gogoproto.Message,
 ) (gogoproto.Message, error) {
-	return ctx.(*executionContext).queryRouter.InvokeUntyped(ctx, req)
+	return ctx.(*ExecutionContext).queryRouter.InvokeUntyped(ctx, req)
 }
