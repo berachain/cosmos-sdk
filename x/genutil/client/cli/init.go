@@ -35,6 +35,9 @@ const (
 
 	// FlagDefaultBondDenom defines the default denom to use in the genesis file.
 	FlagDefaultBondDenom = "default-denom"
+
+	// FlagConsensusKeyAlgo defines the algorithm to use for the consensus signing key.
+	FlagConsensusKeyAlgo = "consensus-key-algo"
 )
 
 type printInfo struct {
@@ -113,7 +116,12 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 				initHeight = 1
 			}
 
-			nodeID, _, err := genutil.InitializeNodeValidatorFilesFromMnemonic(config, mnemonic)
+			consensusKey, err := cmd.Flags().GetString(FlagConsensusKeyAlgo)
+			if err != nil {
+				return errorsmod.Wrap(err, "Failed to get consensus key algo")
+			}
+
+			nodeID, _, err := genutil.InitializeNodeValidatorFilesFromMnemonic(config, mnemonic, consensusKey)
 			if err != nil {
 				return err
 			}

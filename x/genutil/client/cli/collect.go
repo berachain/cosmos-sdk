@@ -32,7 +32,12 @@ func CollectGenTxsCmd(genBalIterator types.GenesisBalancesIterator, defaultNodeH
 
 			config.SetRoot(clientCtx.HomeDir)
 
-			nodeID, valPubKey, err := genutil.InitializeNodeValidatorFiles(config)
+			consensusKey, err := cmd.Flags().GetString(FlagConsensusKeyAlgo)
+			if err != nil {
+				return errors.Wrap(err, "Failed to get consensus key algo")
+			}
+
+			nodeID, valPubKey, err := genutil.InitializeNodeValidatorFiles(config, consensusKey)
 			if err != nil {
 				return errors.Wrap(err, "failed to initialize node validator files")
 			}
@@ -63,6 +68,7 @@ func CollectGenTxsCmd(genBalIterator types.GenesisBalancesIterator, defaultNodeH
 	}
 
 	cmd.Flags().String(flags.FlagHome, defaultNodeHome, "The application home directory")
+	cmd.Flags().String(FlagConsensusKeyAlgo, "ed25519", "algorithm to use for the consensus key")
 	cmd.Flags().String(flagGenTxDir, "", "override default \"gentx\" directory from which collect and execute genesis transactions; default [--home]/config/gentx/")
 
 	return cmd

@@ -159,7 +159,7 @@ func (m Map[K, V]) IterateRaw(ctx context.Context, start, end []byte, order Orde
 	prefixedStart := append(m.prefix, start...)
 	var prefixedEnd []byte
 	if end == nil {
-		prefixedEnd = nextBytesPrefixKey(m.prefix)
+		prefixedEnd = NextBytesPrefixKey(m.prefix)
 	} else {
 		prefixedEnd = append(m.prefix, end...)
 	}
@@ -185,10 +185,10 @@ func (m Map[K, V]) IterateRaw(ctx context.Context, start, end []byte, order Orde
 		return Iterator[K, V]{}, ErrInvalidIterator
 	}
 	return Iterator[K, V]{
-		kc:           m.kc,
-		vc:           m.vc,
-		iter:         storeIter,
-		prefixLength: len(m.prefix),
+		KeyCodec:     m.kc,
+		ValueCodec:   m.vc,
+		Iter:         storeIter,
+		PrefixLength: len(m.prefix),
 	}, nil
 }
 

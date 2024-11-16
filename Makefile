@@ -47,6 +47,8 @@ ifeq (legacy,$(findstring legacy,$(COSMOS_BUILD_OPTIONS)))
   build_tags += app_v1
 endif
 
+build_tags += blst
+
 whitespace :=
 whitespace += $(whitespace)
 comma := ,
