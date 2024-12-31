@@ -84,7 +84,7 @@ func RejectUnknownFields(bz []byte, desc protoreflect.MessageDescriptor, allowUn
 		}
 		// if a message descriptor is a placeholder resolve it using the injected resolver.
 		// this can happen when a descriptor has been registered in the
-		// "google.golang.org/protobuf" resgistry but not in "github.com/cosmos/gogoproto".
+		// "google.golang.org/protobuf" registry but not in "github.com/cosmos/gogoproto".
 		// fixes: https://github.com/cosmos/cosmos-sdk/issues/22574
 		if fieldMessage.IsPlaceholder() {
 			gogoDesc, err := resolver.FindDescriptorByName(fieldMessage.FullName())
