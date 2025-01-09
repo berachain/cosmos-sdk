@@ -15,11 +15,11 @@ This is not desirable for a number of reasons. Perhaps the biggest reason is ins
 
 All modern desktop computers OS (Ubuntu, Debian, MacOS, Windows) provide a built-in secret store that is designed to allow applications to store information that is isolated from all other applications and requires passphrase entry to access the data.
 
-We are seeking solution that provides a common abstraction layer to the many different backends and reasonable fallback for minimal platforms that don’t provide a native secret store.
+We are seeking a solution that provides a common abstraction layer to the many different backends and reasonable fallback for minimal platforms that don’t provide a native secret store.
 
 ## Decision
 
-We recommend replacing the current Keybase backend based on LevelDB with [Keyring](https://github.com/99designs/keyring) by 99 designs. This application is designed to provide a common abstraction and uniform interface between many secret stores and is used by AWS Vault application by 99-designs application.
+We recommend replacing the current Keybase backend based on LevelDB with [Keyring](https://github.com/99designs/keyring) by 99 designs. This application is designed to provide a common abstraction and uniform interface between many secret stores and is used by AWS Vault application by 99designs.
 
 This appears to fulfill the requirement of protecting both key material and metadata from rogue software on a user’s machine.
 
@@ -48,7 +48,7 @@ Running tests locally on a Mac require numerous repetitive password entries.
 ## References
 
 * #4754 Switch secret store to the keyring secret store (original PR by @poldsam) [__CLOSED__]
-* #5029 Add support for github.com/99designs/keyring-backed keybases [__MERGED__]
+* #5029 Add support for github.com/99designs/keyring-backed Keybases [__MERGED__]
 * #5097 Add keys migrate command [__MERGED__]
 * #5180 Drop on-disk keybase in favor of keyring [_PENDING_REVIEW_]
 * cosmos/gaia#164 Drop on-disk keybase in favor of keyring (gaia's changes) [_PENDING_REVIEW_]
