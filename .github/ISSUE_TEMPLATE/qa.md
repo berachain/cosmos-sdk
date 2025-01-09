@@ -15,7 +15,7 @@ v                     without deliberation
 
 ## Gotchas
 
-<!-- Gotchas is an area which changes could of been made that the auditors should be aware of -->
+<!-- Gotchas is an area which changes could have been made that the auditors should be aware of -->
 
 ## QA Breakdown
 
@@ -54,7 +54,7 @@ v                     without deliberation
 * [ ] Upgrade a chain with data from vX
 * Release documentation
     * [ ] Audit UPGRADING.md
-    * [ ] Update all codeblock to the appropriate version number
+    * [ ] Update all code block to the appropriate version number
 
 
 ### Audit checklist
