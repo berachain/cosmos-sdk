@@ -12,14 +12,14 @@ In order for the Cosmos SDK to implement the [IBC specification](https://github.
 
 ## Decision
 
-The application MUST store the most recent `n` headers in a persistent store. At first, this store MAY be the current Merklised store. A non-Merklised store MAY be used later as no proofs are necessary.
+The application MUST store the most recent `n` headers in a persistent store. At first, this store MAY be the current Merkelized store. A non-Merkelized store MAY be used later as no proofs are necessary.
 
 The application MUST store this information by storing new headers immediately when handling `abci.RequestBeginBlock`:
 
 ```go
 func BeginBlock(ctx sdk.Context, keeper HistoricalHeaderKeeper) error {
   info := HistoricalInfo{
-    apphash: ctx.HeaderInfo().AppHash,
+    AppHash: ctx.HeaderInfo().AppHash,
     Time: ctx.HeaderInfo().Time,
     NextValidatorsHash: ctx.CometInfo().NextValidatorsHash,
   }
