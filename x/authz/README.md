@@ -34,7 +34,7 @@ granting arbitrary privileges from one account (the granter) to another account 
 
 ### Authorization and Grant
 
-The `x/authz` module defines interfaces and messages grant authorizations to perform actions
+The x/authz module defines interfaces and messages that grant authorizations to perform actions
 on behalf of one account to other accounts. The design is defined in the [ADR 030](https://github.com/cosmos/cosmos-sdk/blob/main/docs/architecture/adr-030-authz-module.md).
 
 A *grant* is an allowance to execute a Msg by the grantee on behalf of the granter.
@@ -48,7 +48,7 @@ https://github.com/cosmos/cosmos-sdk/blob/v0.52.0-beta.1/x/authz/authorizations.
 
 ### Built-in Authorizations
 
-The Cosmos SDK `x/authz` module comes with following authorization types:
+The Cosmos SDK x/authz module comes with the following authorization types:
 
 #### GenericAuthorization
 
