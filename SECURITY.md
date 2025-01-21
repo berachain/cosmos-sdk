@@ -39,7 +39,7 @@ We require that all researchers:
 
 * Abide by this policy to disclose vulnerabilities, and avoid posting
   vulnerability information in public places, including GitHub, Discord,
-  Telegram, and Twitter.
+  Telegram, and X.
 * Make every effort to avoid privacy violations, degradation of user experience,
   disruption to production systems (including but not limited to the Cosmos
   Hub), and destruction of data.
