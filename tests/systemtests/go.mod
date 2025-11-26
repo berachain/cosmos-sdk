@@ -11,7 +11,7 @@ require (
 require (
 	cosmossdk.io/schema v1.1.0 // indirect
 	github.com/dgraph-io/ristretto/v2 v2.1.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
+	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/supranational/blst v0.3.13 // indirect
 	go.yaml.in/yaml/v2 v2.4.2 // indirect
