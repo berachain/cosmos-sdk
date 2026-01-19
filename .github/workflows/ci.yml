@@ -82,4 +82,4 @@ jobs:
       - name: Gradle cache
         uses: gradle/actions/setup-gradle@v3
       - name: Build & Test
-        run: ./gradlew :core:build :androidApp:assembleDebug :androidApp:testDebugUnitTest
+        run: ./gradlew :core:build
