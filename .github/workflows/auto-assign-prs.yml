@@ -8,7 +8,7 @@ jobs:
   assign-reviewers:
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write # for reading PR reviewers
+      pull-requests: write # for assigning reviewers as assignees
       issues: write # for adding assignees to issues/PRs
 
     steps:
