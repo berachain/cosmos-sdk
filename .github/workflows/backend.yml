@@ -1,0 +1,83 @@
+name: Backend CI Workflow
+
+on:
+  push:
+    branches:
+      - develop
+      - 'feature/*'
+      - 'release/*'
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build-test:
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ios, watchos, tvos]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select latest Xcode
+        run: |
+          XCODE_PATH=$(ls -d /Applications/Xcode*.app | sort -Vr | head -n1)
+          sudo xcode-select -s "$XCODE_PATH"
+          xcodebuild -version
+          xcodebuild -showsdks
+
+      - name: Resolve SPM
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project YourApp.xcodeproj
+
+      - name: Build
+        run: |
+          case "${{ matrix.platform }}" in
+            ios)
+              xcodebuild \
+                -project YourApp.xcodeproj \
+                -scheme YourApp \
+                -destination 'platform=iOS Simulator,name=iPhone 15' \
+                -configuration Debug \
+                clean build | xcpretty
+              ;;
+            watchos)
+              xcodebuild \
+                -workspace YourApp.xcworkspace \
+                -scheme YourWatchApp \
+                -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (46mm)' \
+                -configuration Debug \
+                clean build | xcpretty
+              ;;
+            tvos)
+              xcodebuild \
+                -project YourTVApp.xcodeproj \
+                -scheme YourTVApp \
+                -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation)' \
+                -configuration Debug \
+                clean build | xcpretty
+              ;;
+          esac
+
+      - name: Test (where applicable)
+        if: matrix.platform != 'watchos'
+        run: |
+          case "${{ matrix.platform }}" in
+            ios)
+              xcodebuild \
+                -project YourApp.xcodeproj \
+                -scheme YourApp \
+                -destination 'platform=iOS Simulator,name=iPhone 15' \
+                test | xcpretty
+              ;;
+            tvos)
+              xcodebuild \
+                -project YourTVApp.xcodeproj \
+                -scheme YourTVApp \
+                -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation)' \
+                test | xcpretty
+              ;;
+          esac

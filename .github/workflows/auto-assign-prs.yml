@@ -7,6 +7,9 @@ on:
 jobs:
   assign-reviewers:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write # for assigning reviewers as assignees
+      issues: write # for adding assignees to issues/PRs
 
     steps:
       - name: Check out the repository
@@ -15,7 +18,7 @@ jobs:
       - name: Assign reviewers as assignees
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.PRBOT_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
 

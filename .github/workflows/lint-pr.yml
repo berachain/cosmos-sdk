@@ -13,8 +13,9 @@ permissions:
 jobs:
   main:
     permissions:
-      pull-requests: read # for amannn/action-semantic-pull-request to analyze PRs
+      pull-requests: write # for amannn/action-semantic-pull-request to analyze PRs and post comments
       statuses: write # for amannn/action-semantic-pull-request to mark status of analyzed PR
+      issues: write # for marocchino/sticky-pull-request-comment to post comments
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v5.5.3
