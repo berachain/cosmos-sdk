@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-      - uses: orijtech/consensuswarn@84343282daee37612365f5cbc5f7a606cf89716c #main
+      - uses: orijtech/consensuswarn@84343282daee37612365f5cbc5f7a606cf89716c # main
         with:
           roots: "github.com/cosmos/cosmos-sdk/baseapp.BaseApp.PrepareProposal,github.com/cosmos/cosmos-sdk/baseapp.BaseApp.ProcessProposal,github.com/cosmos/cosmos-sdk/baseapp.BaseApp.FinalizeBlock,github.com/cosmos/cosmos-sdk/baseapp.BaseApp.Commit,github.com/cosmos/cosmos-sdk/baseapp.BaseApp.VerifyVoteExtension"
